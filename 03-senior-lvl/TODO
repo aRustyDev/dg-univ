@@ -1,0 +1,49 @@
+* Hunt Focus
+-- Hunt for adversary activity based on TTP's rather than indicators
+-- Independently identify, implement, and formalize uncharacterized activity utilizing hypothesis-based threat hunting techniques.
+-- Evaluation on searching for activity through ability to look in data for odd activity, and identify if it is normal or abnormal activity.
+-- Advanced Splunk searching
+-- Data Pivoting
+
+* File Carving
+-- Carve Files out of PCAP using advanced techniques
+-- Using the linux "xxd" command
+-- Using the linux "dd" command
+  * Convert from ascii to hex
+  * convert from hex to ascii
+-- Create a file out of PCAP
+
+* File Forensics
+-- Knowledge of forensics capabilities and how to deep dive into files and objects for examination.
+-- Decompiling & Examining Exploit files
+  * PDFs
+  * Flash Files
+  * OLEs
+  * JAR
+-- Command Line Analysis of Logs
+  * gawk
+  * egrep
+-- SiLK Examination of files
+  * Scripts
+
+* Intangibles
+-- A Senior Analyst must
+  * Be Hunt Minded
+  * Provide process innovations (& fix issues)
+  * Exercise time management skills
+  * Provide value to lower-level analysts
+  * Exercise critical thinking skills
+  * Write well
+
+* Open Source Research
+-- How to do Open Source Research, researching certs, malware, attack surfaces, signature, pivoting etc.
+-- Censys, PassiveTotal, VirusTotal, Domain Tools, Open Source Sandboxes, BuiltWith, WordPress Theme Detector
+
+* ELK Senior
+-- Able to create complex searches, visualizations, and dashboards
+
+* SiLK
+-- High level SiLK - Scripting
+-- Updating Customer IPSets
+-- Updating Customer PMAPs
+-- Keeping the folders Standardized
