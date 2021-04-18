@@ -67,11 +67,17 @@ AS 5 will now announce network P1 subnet of network P, still owned by AS 4 but n
 
 In this scenario, P1 will propagate the same way as P in the previous scenario. The slight difference is that now every affected AS will have two different routes for the IP space covered by P: P and P1. Let’s focus on AS 1. Even if a proper route to P is installed in AS 1’s router, only a portion of traffic of the original P will be directed to the proper owner due to the longest prefix match. Please note that since AS 5 kept one of its providers explicitly out of the hijack, AS 5 can now route traffic received from AS 1 directed to P1 to the proper owner, after analyzing and/or manipulating each packet.
 
+Now consider again this real-world example and imagine that AS 4 is hosting on P1 some servers of a bank. Consider now that the attacker is interested in collecting data from the bank, and that he/she studied the problem deeply enough to know that P1 is the ideal target for its purposes and starts announcing it.Differently from the previous scenario, the bogus routing information spread will now depend only on the quality of the filters applied by AS’s, since the subnet P1 and P will not interfere with each other in BGP decision processes. As soon as everything is set up, then AS 5 will be able to receive data from the affected portion of the world, while keeping a safe routing leg to forward traffic and (hopefully for him/her) get unnoticed.
 
+Again, note that in this scenario it is still possible to identify the attacker by checking BGP packets involving P and any subnet of P either from route collectors or via dedicated real-time BGP monitoring systems. However, the network operator can’t identify the attack from the complaints received by his/her customers if the delay introduced by the attacker is short enough to go unnoticed.
+
+An example of a route leak which falls perfectly in this scenario is the infamous hijack of YouTube prefixes by Pakistan Telecom back in late February 2008. In that case, Pakistan Telecom attempted to blackhole traffic towards 208.65.153.0/24 by announcing routes where Pakistan Telecom was appearing as the origin AS to fulfill a censorship request from the Pakistan government. The problem is that they also announced this route to its provider PCCW, which didn’t apply proper filters and caused a domino effect, causing about 3 hours of service disruption to YouTube.
 
 ![prefix-hijack-attacks-3](imgs/prefix-hijack-attack-3.webp "Prefix Hijack Attacks")
 
-##### Solution
+Consider now the above scenario. AS 5 is now smart enough to forge a fake AS path in the Update message by keeping the AS of the real owner at the end of the AS path as well as the original provider of the real owner (AS 2).
+
+The propagation of the attack is the same as the previous examples, but now the detection of the attack is much harder. It is still possible to check BGP packets involving P and any subnet of P either from route collectors or via dedicated real-time BGP monitoring systems, but now the detection of the attack must also rely on additional pieces of information, such as the knowledge of each relationship between each pair of AS’s in the AS path. Indeed, in this example it would have been possible to detect that since AS 3 is customer of AS 2, and the AS path 3 2 4 detected at AS 1 would have shown the involvement of AS 3 as transit of AS 2 for P1, which is against the valley-free property.
 
 #### Route Leaks and Fat Finger Syndrome
 Route leaks are unintentional generation of bogus routing information caused by router misconfigurations, such as typos in the filter configuration or mis-origination of someone’s else network (fat finger). Even if unintentional, the consequences of a route leak can be the same as the prefix hijacks.
@@ -80,8 +86,11 @@ Route leaks are unintentional generation of bogus routing information caused by 
 
 Consider the very same topology we used in the prefix hijack examples, with the difference that AS 5 is now a normal network operator which simply applied wrong BGP filters, such as “accept everything from my provider, announce everything to my provider.” This is sadly not an uncommon case, and it is an error that several AS’s can do when switching from a single provider (where this rule works fine) to multiple providers (where this rule would make the AS a transit of each provider).
 
-##### Solution
+Due to that mistake, now AS 5 will propagate everything it receive from its provider towards another provider, clearly against the valley-free property. This piece of routing information will then spread all over the Internet and AS’s will start routing traffic depending on the result of the BGP decision process of each AS.
 
+Now think again about the 65,000 AS’s in the Internet and imagine that AS 4 is a rural service provider with few resources, both technical and economic. This would mean that probably the upstream connection he/she bought from his/her providers is very limited, thus making the two links a bottleneck in this route leak scenario. In this case it is possible that AS 5 will not be able to handle the amount of traffic directed to P, causing not only an additional delay, but also several packet losses.
+
+This was the case of the route leak we discussed in our June blog, which affected several banks in addition to Facebook and CloudFlare. This wasn’t the only case of route leak recently experienced, and thanks to that IETF managed to draw a remarkable route leak classification.
 
 [bgp-1]: https://en.wikipedia.org/wiki/Border_Gateway_Protocol
 [bgp-2]: https://blog.catchpoint.com/2019/10/25/vulnerabilities-of-bgp/
