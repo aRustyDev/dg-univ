@@ -1,0 +1,44 @@
+* Linux Basics
+-- https://en.wikipedia.org/wiki/Standard_streams
+-- https://en.wikipedia.org/wiki/Redirection_(computing)
+-- Trainee independently demonstrates their ability to navigate the linux envoirnment and do analysis on SiLK data from the command line.
+-- Demonstrate the basics of the linux filesystem and shell
+-- Demonstrate the basic linux commands
+-- Demonstrate basic text editor commands (vi)
+
+* CyberChef & Encoding Basics
+-- https://gchq.github.io/CyberChef/
+-- http://kunststube.net/encoding/
+-- Demonstrate the capability to identify a basic encoding and use CyberChef to decode a given sample
+
+* Wireshark Basics
+-- https://wiki.wireshark.org/FrontPage
+-- Demonstrate to the trainee the basic UI features (layout, customization, changing times, columns, etc)
+-- Demonstrate basic filtering
+-- Demonstrate investigative/pivoting tools (Statistics, follow stream, etc)
+-- Demonstrate how to export packets/save as .k12
+-- Trainee independently demonstrates the ability to analyze PCAP.
+-- Trainee independently demonstrates the ability to filter/export packets.
+-- Trainee demonstrates a basic understanding of wiresharks UI and functionality.
+
+* SiLK & Flow Data Basics
+-- Demonstrate to the trainee the basic SiLK commands (rwfilter, rwcut, rwsort, rwuniq, rwstats, rwfileinfo, etc)
+-- Demonstrate to the trainee how to use IPSets ( creation, use, and related set commands rwset, rwsetbuild, rwsetcat)
+-- Show the trainee the SiLK data structure.
+-- Demonstrate to the trainee how to string multiple SiLK querys together using Pipes. Also demonstrate how to use Linux commands in combination with SiLK commands
+-- https://learn.dcita.edu/learning/user/common/viewItemDetails.do?componentTypeID=CYBERCAST&goalid=&componentID=CYB0236&revisionDate=1495035120000&currencyCode=
+-- Trainee demonstrates basic knowledge of SiLK architecture (data locations, Netflow Collection points and how they relate to class and type)
+-- Trainee independently uses SiLK to query netflow as part of an investigation.
+-- Trainee demonstrates basic knowledge of primary SiLK commands.
+-- Trainee demonstrates the ability to generate IPSets and use them to query large ip groups.
+
+* SPLUNK Basics
+-- Demonstrate UI navigation/functionality
+-- Explain query syntax (include Index naming schema)
+-- Discuss CIM (Common Information Model)
+-- Run some sample queries
+-- https://docs.splunk.com/Documentation
+-- https://answers.splunk.com/index.html
+-- Query splunk for investigation-relevant data
+-- Demonstrate basic knowledge of boolean logic and apply it to Splunk search syntax
+-- Demonstrate use of Splunk Help and Splunk documentation
