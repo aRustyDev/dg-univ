@@ -35,6 +35,29 @@ Part of the problem can be solved applying cryptographic authentication on each 
 Solutions like Resource Public Key Infrastructure (RPKI) and BGPsec path validation have been recently standardized by IETF, but they still require the collaboration of many AS’s and thus are difficult to deploy.
 
 #### Prefix Hijack Attacks
+Prefix hijacks are deliberate intentional generation of bogus routing information.
+
+The attacker could announce routes to disrupt the services running on top of the IP space covered by the routes, or hijack the traffic to analyze confidential information flowing towards that service. The attacker could also simply announce routes with a crafted AS path to show fake neighboring connections in famous websites, like the BGP toolkit of Hurricane Electric. Or even worse, the attacker could hijack the traffic to manipulate the flowing packets at his/her will, or simply want to exploit unused routes to generate spam.
+
+![prefix-hijack-attacks-1](imgs/prefix-hijack-attacks-1.webp "Prefix Hijack Attacks")
+
+**Example: (Above)**  
+AS 5 is a malicious attacker and is connected to the Internet via two providers: AS 2 and AS 3.  
+AS 1 is customer of AS 2 and provider of AS 3, while AS 4 is a peer of AS 2 and AS 2 is provider of AS 3.  
+Finally, we assume that AS 2 has properly set its incoming BGP filters, while AS 1 and AS 3 have a loose filter configuration (if any).
+
+In this scenario, AS 5 will announce network P, which is owned and already announced by AS 4.  
+Due to the filter configurations described above, the Update message announced by AS 5 will be dropped by AS 2, while it will be accepted by AS 3.  
+AS 3 will then announce that to its providers (AS 1 and AS 2).  
+AS 2 will again drop the packet due to the filters, while AS 1 will accept it.  
+If the BGP decision process of AS 1 will select as best route the path from AS 5, then traffic from AS 1 to AS 5 will be sent to the attacker instead of towards the proper owner.
+
+![prefix-hijack-attacks-2](imgs/prefix-hijack-attacks-2.webp "Prefix Hijack Attacks")
+
+
+
+![prefix-hijack-attacks-3](imgs/prefix-hijack-attacks-3.webp "Prefix Hijack Attacks")
+
 ##### Solution
 
 #### Route Leaks and Fat Finger Syndrome
