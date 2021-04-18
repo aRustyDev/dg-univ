@@ -1,0 +1,107 @@
+* Analyst Pipeline
+-- https://tools.netsa.cert.org/analysis-pipeline/docs.html
+-- https://tools.netsa.cert.org/analysis-pipeline/index.html
+-- Analyst shows understanding of the basics of analyst pipeline and how they can use pipeline data in there analysis
+-- Demonstrate analyst Pipeline alerting to the analyst (Splunk index). Explain possible uses. (Watchlist, statistics, hueristics, anomoly detection)
+-- Explain where pipeline data comes from, and how it fits into the architecture of flow collection. (analysis flow records as they are added to SiLK repository)
+
+* Hunt Focus
+-- Intermediate analysts must be able to Hunt for malicious activity, and know when to Hunt vs. when to perform traditional analysis.
+-- Open Source Intelligence
+-- Closed Source Intelligence
+-- Indicator-Based Hunt
+
+* Intangibles
+-- An intermediate analyst must:
+  * Be able to work independently
+  * Teach others
+  * Be Threat focused
+  * Recognize inherent biases
+
+* Insider Threat Hunt/Activity
+-- https://learn.dcita.edu
+  * Introduction to Cyber Insider Threat (ICIT) OL (OI ICIT_CI_0002)
+
+* Packet Headers
+-- Explain the various packet headers as they pertain to the OSI model
+-- Demonstrate what the various hex means in various parts of the headers (manually, without a protocol analyzer)
+-- Discuss malformed headers and why this knowledge is important outside of a protocol analyzer
+-- Convert a provided header from hex to ASCII
+-- What addressing method is used by each layer of the OSI model
+-- Explain the OSI model and why it is important to us in this context
+
+* ELK
+-- Be able to search for ELK indicators
+
+* Splunk - Intermediate
+-- Have analyst watch Advanced Splunk Fundamentals course 2
+-- Have analyst complete BOTS course (distance or on-prem)
+-- Have analyst read Splunk-quick-reference-guide (Tri_112).pdf
+-- "loadjob" command
+-- IDSS Data
+-- Fornax - Data Dictionary
+-- Search Macros - Identifying & Using them
+-- Invoking External Commands - Knowing that you can & Using them
+-- Stats Commands (There are a lot, the below are just a few)      avg
+  * count
+  * dc
+  * sum
+-- Other Common Commands
+  * chart/timechart
+  * dedup
+  * fields
+  * head/tail
+  * rename
+  * regex
+  * rex
+  * search
+  * sort
+  * table
+  * top/rare
+  * transaction
+  * where
+  * fillnull
+-- Subsearch Overviews
+  * join
+  * append
+-- Lookup Overviews
+  * Lookup Data-Source Types
+  * Use field lookups to add information to your events
+  * Use input lookups to search
+-- Eval Commands  (There are a lot, the below are just a few)
+  * General Invocation of Commands
+  * cidrmatch("X",Y)
+  * if(X,Y,Z)
+  * len(X)
+  * max(X,…)
+  * min(X,…)
+  * mvcount(X)
+  * mvfilter(X)
+-- Analyst independently extracts fields via regex, can perform complex searches
+
+* IronPort ESAs
+-- Understand and be able to search for any email that crosses EEMSG. Know where and how to search for email data.
+  * Reputation Filters
+  * Message Filters
+  * Anti-Spam
+  * Anti-Virus
+  * Content Filters
+  * Outbreak Filters
+  * Data Loss Prevention (DLP)
+-- Quarentines
+  * Types - Spam, Virus, Content Filters, DLP
+  * Releasing emails from them
+-- Writing Content & Message Filters
+-- Analyst must be able to correlate email logs, know if and why an email was quarentined
+
+* In-depth understanding of Server Side attacks
+-- Intermediate analysts must be able to understand the varying server side attacks and how to determine if they are successful.
+-- Web attacks - HTML, JavaScript, CSS, PHP
+-- Database attacks - SQL, NoSQL, PHP
+-- Cross Site Scripting attacks
+-- Evaluation on how analyst is able to tell what kind of attack each is
+
+* Understand and Create signatures
+-- Must be able to understand the context of what makes a signature, and how to help with the creation of a YARA/SNORT rule. If DGOC-NA begins using any other rule sets (ex. Suricata), the analyst must have to drive to understand and create signatures for a new rule set.
+-- Write a YARA Rule
+
