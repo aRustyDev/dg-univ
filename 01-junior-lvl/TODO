@@ -175,3 +175,259 @@
   * Affiliation or nation-state association
   * Most common TTPs (top 3)
   * Most recent activity (last three months)
+  
+* HTTP Protocol
+-- Common HTTP Request Methods
+-- HTTP Response Codes and their meanings
+-- Common HTTP header fields
+  * User-Agents
+  * Referers
+  * Accept
+  * Cookies
+  * Content-Types
+  * X-Forwarded-For
+-- HTTP redirection techniques
+  * 300-series responses
+  * .innerHTML
+  * iframes
+  * document.write
+  * document.location
+-- HTTP authentication schemes
+-- HTTP Versions
+-- https://www.tutorialspoint.com/http/index.htm
+-- https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication
+-- Explain request methods and specific functions
+-- Explain the usage of 100, 200, 300, 400, 500-series codes
+-- Explain the data found in each common header field
+-- Explain the different redirection techniques and how they work
+-- Explain three (3) common authentication schemes
+-- Discuss HTTP versions 0.9, 1.0, 1.1, 2.0, and 3.0
+
+* HTTPS Protocol
+-- X.509 Certificates
+-- Client-Server Hello and session creation process
+-- Discuss common/useful fields of X.509 certificates
+-- What is a self-signed certificate?
+-- Explain (high level) of encrypted session creation
+-- https://sites.google.com/site/amitsciscozone/home/security/digital-certificates-explained
+-- http://www.steves-internet-guide.com/ssl-certificates-explained/
+
+* SMTP Protocol
+-- Explain SMTP protocol overview
+  * SMTP Methods
+  * SMTP Response Code
+  * SMTP Routing
+-- Explain Email structure overview (Envelope, SMTP Headers, SMTP Body)
+-- Explain Common SMTP header fields
+  * Basics (To, From, Subject, Date, Return-Path, Message-ID)
+  * X-Mailer  / User-Agent
+  * Received By
+-- Explain SMTP Attachments (Encodings & Content-Type/MIME Types)
+-- From a PCAP sample, explain all parts of SMTP and meaning
+-- Decode an attachment and return it to its original type
+
+* Exploit Kits
+-- Read the Exploit Kit Wikipedia article
+-- Explain to trainee how Exploit Kits affect the DOD at large (if current threat exists)
+-- Explain the purpose of a Test Gate
+-- Demonstrate to trainee standard EK phases and process flows
+-- https://en.wikipedia.org/wiki/Exploit_kit
+-- https://www.paloaltonetworks.com/cyberpedia/what-is-an-exploit-kit
+-- https://www.cyber.nj.gov/threat-profiles/exploit-kits/
+-- https://www.malware-traffic-analysis.net
+-- Describe historical and current purpose of Exploit Kits and their prevelence (today)
+-- Explain how Exploit Kits affect the DOD
+-- Demonstrate knowledge of EK phases/process flows
+-- Explain an EK variant that has been observed in the wild in the last six months
+  * C2
+  * Each phase (show PCAP)
+  * Identify the exploit file and the malware delivered
+
+* Enterprise Recursive Servers (ERS)
+-- ERS (Enterprise Recursive Servers) are basically a DoDIN DNS Proxy
+-- ERS Data can be found in the DCO Splunk index "nipr_bind_dns"
+-- ERS has logs for several different DNS query types (mostly A and PTR)
+-- Primarily useful when searching based on resolved domain, or based on external observed IP
+-- Pivot into ERS logs when you observe DNS traffic at the boundary from ERS servers; logs should show originating DoDIN IP
+-- RPZ (Response Policy Zone) alerts can be found in Splunk index "niproob_quo_dns"
+-- RPZ logs contain alerts related to mitigation actions taken by ERS
+-- Analyst demonstrates understanding of ERS logs, location, and use
+-- Analyst demonstrates understanding of ERS properties including mitigation actions that ERS can take (Blocking, Sinkholing, Blackholing)
+-- Analyst demonstrates an understanding of RPZ logs, location, and how/when to use them
+
+* Cyber Kill Chain
+-- Why we use CKC
+-- Stages of the CKC
+-- What can be learned from observing attacks at different stages
+-- Using the CKC to assist with campaign tracking
+-- Intelligence Driven Defense
+-- https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html
+-- https://www.sans.org/security-awareness-training/blog/applying-security-awareness-cyber-kill-chain​
+-- What are the stages?
+-- How does this assist with developing countermeasures?
+-- How does this help with hunting?
+
+* HBSS
+-- How HBSS works
+-- Where the logs are (hint: nipr_mc_hids)
+-- Host-based defenses
+-- Signature-based vs heuristic-based detection
+-- Show documentation for custom & COTS rules
+-- Discuss component overview
+  * Virus Scan Enterprise (VSE)
+  * Host Intrusion Prevention System (HIPS)
+  * Policy Auditor
+  * Rogue System Detection (RSD)
+  * Data Loss Prevention (DLP)
+-- Demonstrate ability to query against HBSS index
+  * HBSS event analysis 101
+
+* Palo Alto Networks - Web Content Filtering (WCF)
+-- Explain architecture
+  * Zoomed in architecture of the PAN Firewalls
+  * Where the PAN Firewalls are at the IAPs
+  * Data Flow - Where the data goes
+  * Quick Overview of what this means for CMs / Blocks
+-- Explain logs
+  * What logs exist?
+  * How to find info about existing logs?
+  * What logs are where?
+  * What fields do we care about?
+-- Categorization
+-- Applipedia
+
+* Open Source Tools
+-- Most common tools are in bookmarks
+-- Discuss usage of "best" tools:
+  * Rex Swain HTTP Viewer
+  * urlscan.io
+  * Virustotal
+  * Crt.sh
+  * PassiveTotal
+  * Whois.Domaintools.com
+  * Gary Kessler File Sigs
+  * Hurricane Electric BGP
+-- Discuss tools for functional areas
+  * Web - HTTP Code Requesters & Site Analysis Tools
+  * Web - Reputation Checkers
+  * Web - Domain Registration Information Databases
+  * Malware - automated analysis
+  * General - decoders
+  * General - signature information
+  * Other situational tools
+-- Ensure correct handling of information
+  * Can you use open-source tools with your indicators?
+  * Avoiding spillage or FISA issues
+
+* OSINT
+-- Discuss concept of OSINT
+-- Pivoting to OSINT for reporting purposes
+-- Pivoting from OSINT for information gathering
+-- Importance of reading. every. day.
+-- Search on IOCs discovered internally to (potentially) find related OSINT campaigns/IOCs
+-- Demonstrate usage of OSINT to:
+  * Gather OSINT reporting
+  * Search within our datasets to determine if DoD is affected
+-- Discuss some of the personal blogs/news sites followed
+
+* Common Server Attacks
+-- Develop understanding of basic attacks targeting webservers 
+  * Discuss how these are in use today
+-- Explain how webshells are used and give an example observed in our OE
+-- Explain SQL injection and give two (2) examples
+-- Explain Cross-Site Scripting (XSS)
+-- Explain Remote File Includes
+
+* DNS Protocol
+-- Explain common record types
+  * A/AAAA
+  * CNAME
+  * MX
+  * NS
+  * PTR
+  * SOA
+-- Explain differences between iterative and recursive queries
+-- Discuss advantages and drawbacks of DoH and DDNS
+-- Understand overall function of DNS and the protocol
+  * Types of query (recursive, iterative)
+  * Record types
+  * Queries / Answers
+-- Root DNS servers
+-- DynamicDNS (DDNS / DynDNS)
+-- DNS over HTTPS (DoH)
+
+* Elastic Stack
+-- Searching data
+  * Lucene Syntax
+  * Important Fields
+  * Saving Searches/Sharing Searches
+-- Creating Visualizations
+-- Create Dashboards
+
+* YARA
+-- Discuss YARA Rules (how they function and alert)
+-- Undestanding the components of a YARA rule
+  * Individual pieces of the alert
+  * Variables
+-- Content Matches
+  * Static Matches
+  * Know that RegEx (once again!)
+
+* Snort
+-- Understand the function of Snort in Intrusion Dection
+-- Content modifiers
+  * Negative matches
+  * HTTP pre-processor matches
+  * "nocase"
+-- Positioning Modifiers
+  * Distance & Within
+  * Depth & Offset
+-- Signature tracking numbers and references
+-- Variables in Snort
+-- Dynamic Content Matches
+  * Byte Jumps
+  * Byte Test
+  * Byte Extracts
+  * PCRE
+-- AutoDecoding
+  * URL Normalization
+  * Base64 Decoding
+-- https://www.snort.org/downloads/snortplus/snort_manual.pdf
+-- http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node32.html
+
+* Telnet
+--Overview
+--Security concerns
+
+* FTP
+--Control channel
+--Data channel
+--Common FTP Commands
+
+* SSH
+--Understanding of the initial handshake
+--Credentials vs keys
+
+* VNC
+--Purpose of protocol
+--Understanding of the initial session creation
+
+* RDP
+--Understanding of the initial session creation
+--Client Settings
+--Encryption Types
+--Reversability
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
