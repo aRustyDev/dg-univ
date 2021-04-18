@@ -4,9 +4,12 @@ Border Gateway Protocol (BGP) is a standardized exterior gateway protocol design
 
 ### History
 BGP was first described in 1989 in RFC 1105, and has been in use on the Internet since 1994.  
-IPv6 BGP was first defined in [RFC 1883][rfc-1883] in 1995, and it was improved to [RFC 2283][rfc-2283] in 1998.  
+IPv6 BGP was first defined in RFC 1883 in 1995, and it was improved to RFC 2283 in 1998.  
 The current version of BGP is version 4 (BGP4), which was published as RFC 4271 in 2006.  
-* [RFC 4271][rfc-4271] - corrected errors, clarified ambiguities and updated the specification with common industry practices. 
+* [RFC 1883][rfc-1883] - 
+* [RFC 2283][rfc-2283] - 
+* [RFC 4271][rfc-4271] - Corrected errors, clarified ambiguities and updated the specification with common industry practices. 
+* [RFC 4272][vuln-2] - 
   * The major enhancement was the support for CIDR and use of route aggregation to decrease the size of routing tables.
 * Allows BGP4 to carry a wide range of IPv4 and IPv6 "address families".
 * Also called Multiprotocol Extensions which is Multiprotocol BGP (MP-BGP).
@@ -83,7 +86,7 @@ Consider the very same topology we used in the prefix hijack examples, with the 
 [bgp-1]: https://en.wikipedia.org/wiki/Border_Gateway_Protocol
 [bgp-2]: https://blog.catchpoint.com/2019/10/25/vulnerabilities-of-bgp/
 
-[vuln-1]: https://tools.ietf.org/html/rfc4271
+[vuln-1]: https://tools.ietf.org/html/rfc4272
 [vuln-x]: https://www.blackhat.com/presentations/bh-usa-03/bh-us-03-convery-franz-v3.pdf
 
 [rfc-4271]: https://tools.ietf.org/html/rfc4271
