@@ -1,0 +1,177 @@
+* Advanced Encoding and Decoding
+-- Understand base 2, 8, 10, and 16 numbering systems and how they relate in computing (binary, octal, decimal, hexadecimal)
+-- Be able to recognize these encodings:
+  * base32
+  * base64
+  * Hex
+  * URL
+  * Unicode
+  * aaencoding (super kawaiiiiii! [c^_^o] )
+  * jjencoding
+  * XOR
+  * (Bonus: Uuencoding, Xxencoding)
+-- https://medium.com/the-z/breaking-down-one-of-the-coolest-javascript-obfuscators-15b234f768c
+-- Analyst provides examples of the various numbering system uses and how they work
+
+* Generic Level Knowledge
+-- Where Code Executes
+  * JavaScript
+  * PHP
+-- Explain EPOCH Time and how to convert it
+-- Where code executes (tell us where); why is this important for us to know?
+-- Create a relevant presentation on a current topic that both interests you and is helpful for other analysts
+  * Get ready to present it
+  
+ * WHOIS
+-- What are WhoIs records?
+-- Registration information and what it all means
+  * Network ranges
+  * Organization names
+  * Country codes
+  * Top-level domains (TLD)
+-- https://whois.domaintools.com
+-- https://techterms.com/definition/whois
+-- Name at least three Internet and one DoD WhoIs sources
+-- Explain the parts of a WhoIs record
+-- Identify uses of WhoIs data in investigations and pivoting
+
+* PowerShell
+-- PowerShell usage basics
+-- Get-Help
+-- Using modules and scripts
+-- Malicious uses
+-- https://ss64.com/ps
+-- https://docs.microsoft.com/en-us/powershell/
+-- Demonstrate basics
+  * Formation of commands and cmdlets
+  * CLI and ISE
+  * Get-Help
+-- Modules and Scripts
+  * What are modules? How do you get them?
+  * <Analyst> Write a basic PS script that will take a website as input, get the page, save the page data to a file, then display the file (or show that other scripts have been created)
+-- Malicious PowerShell
+  * Exec Policy bypass
+  * Getting online resources
+  * Changing system settings
+  
+* Linux Systems
+-- Linux Environment Basics
+  * Navigation and file commands
+  * man mode
+  * Redirection (pipes, creating files, overwriting files)
+  * stdin/stdout
+  * What is a file in *NIX?
+  * File permissions
+-- Know your profile files and what they do
+  * bashrc
+  * bash_profile
+  * bash_history
+-- Advanced Linux tools
+  * sed
+  * awk
+  * cut
+  * VI/VIM
+-- https://en.wikipedia.org/wiki/Standard_streams
+-- https://en.wikipedia.org/wiki/Redirection_(computing)
+-- Demonstrate the ability to move around the Linux system
+-- Explain files in Linux and modify permissions
+-- Demonstrate file and command redirection in conjunction with stdin/stdout
+-- Demonstrate usage of sed, awk, and cut with a flow record
+-- Personalize profile files in some fashion
+-- Create a basic BASH script
+
+* Networking Basics
+-- What actually is a MAC?
+-- Understand subnetting and CIDR basics
+  * Purpose of subnetting
+  * What IP ranges belong to the major CIDR breakpoints (/8 /16 /24)
+-- Introduction to IPv6
+  * How to shorthand IPv6
+  * Explain why IPv6 is the future
+-- https://en.wikipedia.org/wiki/MAC_address
+-- http://www.steves-internet-guide.com/ipv6-guide/
+-- https://study-ccna.com/subnetting-explained/
+-- https://study-ccna.com/cidr-classless-inter-domain-routing/
+-- Explain MAC OUI, EUI, and what layer(s) use MAC addressing
+-- Correctly identify all hosts in a given /8, /16, or /24 subnet
+-- Explain why subnetting is important
+-- Explain IPv6 addressing and its differences from IPv4
+-- Correctly expand and shorten IPv6 addresses
+
+* WireShark
+-- How to create custom, pre-built filters
+-- How to export and merge PCAP sessions
+-- Using the "Decode As" option
+-- Locating the alternate GZIP decoded data in the PCAP (when TCP Stream doesn't work)
+-- Exporting specific packets and streams
+
+* TShark
+-- Why you use TShark instead of Wireshark
+-- General TShark usage
+  * Adding columns/fields
+  * Replaying PCAP from a file
+  * Where can we use TShark?
+-- Explain advantages of Tshark over Wireshark
+-- Display the ability to:
+  * Read from a file
+  * Add multiple "columns" to output
+  * Filter on data
+
+* Networking Advanced
+-- Review the components of subnets (N.F.L.B.):
+  * N-etwork ID
+  * F-irst Assignable Host
+  * L-ast Assignable Host
+  * B-roadcast IP
+-- Teach the "Counting Method" with number line and binary
+-- Teach the "Exponent Method" with math and stuff
+-- Discuss unicast, multicast, and broadcast functionality
+-- Discuss a router configuration
+-- Explain BGP
+  * How does this impact Routing?
+  * ASNs
+  * Investigating with ASNs
+  * Vulnerablities
+-- Demonstrate the ability to determine the N.F.L.B. of any network
+-- Determine masks with both the counting and exponent methods
+-- Walk thorugh a whole router configuration
+-- Explain the functions of unicast, multicast, and broadcast
+-- Explain the components and functions of BGP and its vulnerabilities
+
+* Cloud Computing & Security
+-- Discuss different flavors of the cloud (AWS, Azure, etc)
+-- Discuss advantages of using a cloud and features it provides
+-- Explain NA's role in our (current) implementation of the cloud within the DoDIN
+-- Show and explain the infrastructure of our cloud
+  * Splunk logs (SCCA)
+  * BCAP
+  * Flow of traffic from IAP
+  * Defenses at the cloud
+-- Choose and discuss a cloud provider and features they provide
+-- Explain the flow of traffic through the cloud
+-- Demonstrate querying cloud data and explain meanings of a given record
+-- Explain incident response for the cloud
+-- Name some cloud-based subscribers
+
+* IronPorts ESAs/EEMSG
+-- Architecture and where EEMSG sits in the stack
+-- Splunk index "nipr_ipp_email"
+-- EEMSG vs DEE
+-- Explain purpose & architecture of the EEMSG Ironports
+-- Describe message processing flow
+  * Inbound process
+  * Outbound process
+-- Explain content of Ironport logs and where to get them
+  * Identification Numbers (ICID, MID, DCID)
+  * Example Logs
+
+* Advanced Persistent Threats - Basics
+-- What is an intrusion set/APT?
+-- How attribution works
+-- Explain commonalities of instrusion sets/APTs
+-- Why is attribution difficult & problems (we) face
+-- Choose one (1) APT and explain it
+  * Name(s)
+  * Affiliation or nation-state association
+  * Most common TTPs (top 3)
+  * Most recent activity (last three months)
