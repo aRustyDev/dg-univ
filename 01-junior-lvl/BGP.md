@@ -1,6 +1,6 @@
 # BGP
 **Sources:** [1][bgp-1],  
-Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) on the Internet. BGP is classified as a path-vector routing protocol, and it makes routing decisions based on paths, network policies, or rule-sets configured by a network administrator.
+Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS)[1][ext-1] on the Internet. BGP is classified as a path-vector routing protocol, and it makes routing decisions based on paths, network policies, or rule-sets configured by a network administrator.
 
 ### History
 BGP was first described in 1989 in RFC 1105, and has been in use on the Internet since 1994.  
@@ -56,3 +56,5 @@ Consider the very same topology we used in the prefix hijack examples, with the 
 [rfc-4271]: https://tools.ietf.org/html/rfc4271
 [rfc-2283]: https://tools.ietf.org/html/rfc2283
 [rfc-1883]: https://tools.ietf.org/html/rfc1883
+
+[ext-1]: ASNs.md
