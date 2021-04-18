@@ -9,7 +9,7 @@ The current version of BGP is version 4 (BGP4), which was published as RFC 4271 
 * [RFC 1883][rfc-1883] - 
 * [RFC 2283][rfc-2283] - 
 * [RFC 4271][rfc-4271] - Corrected errors, clarified ambiguities and updated the specification with common industry practices. 
-* [RFC 4272][vuln-2] - 
+* [RFC 4272][vuln-1] - 
   * The major enhancement was the support for CIDR and use of route aggregation to decrease the size of routing tables.
 * Allows BGP4 to carry a wide range of IPv4 and IPv6 "address families".
 * Also called Multiprotocol Extensions which is Multiprotocol BGP (MP-BGP).
@@ -23,7 +23,7 @@ There are 2 flavors of BGP.
 2. **eBGP** - Used for routing across the Internet.
 
 ### Vulnerablities
-**Sources:** [1][vuln-1], [2][vuln-2],  
+**Sources:** [1][vuln-1], 
 
 The risks in BGP arise from three fundamental vulnerabilities:
 
