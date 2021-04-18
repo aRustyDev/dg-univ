@@ -39,24 +39,34 @@ Prefix hijacks are deliberate intentional generation of bogus routing informatio
 
 The attacker could announce routes to disrupt the services running on top of the IP space covered by the routes, or hijack the traffic to analyze confidential information flowing towards that service. The attacker could also simply announce routes with a crafted AS path to show fake neighboring connections in famous websites, like the BGP toolkit of Hurricane Electric. Or even worse, the attacker could hijack the traffic to manipulate the flowing packets at his/her will, or simply want to exploit unused routes to generate spam.
 
-![prefix-hijack-attacks-1](imgs/prefix-hijack-attacks-1.webp "Prefix Hijack Attacks")
+![prefix-hijack-attacks-1](imgs/prefix-hijack-attack.webp "Prefix Hijack Attacks")
 
-**Example: (Above)**  
-AS 5 is a malicious attacker and is connected to the Internet via two providers: AS 2 and AS 3.  
-AS 1 is customer of AS 2 and provider of AS 3, while AS 4 is a peer of AS 2 and AS 2 is provider of AS 3.  
-Finally, we assume that AS 2 has properly set its incoming BGP filters, while AS 1 and AS 3 have a loose filter configuration (if any).
+**Example 1: (Above)**  
+AS 5 is a malicious attacker and is connected to the Internet via two providers: AS 2 and AS 3. AS 1 is customer of AS 2 and provider of AS 3, while AS 4 is a peer of AS 2 and AS 2 is provider of AS 3. Finally, we assume that AS 2 has properly set its incoming BGP filters, while AS 1 and AS 3 have a loose filter configuration (if any).  
 
-In this scenario, AS 5 will announce network P, which is owned and already announced by AS 4.  
-Due to the filter configurations described above, the Update message announced by AS 5 will be dropped by AS 2, while it will be accepted by AS 3.  
-AS 3 will then announce that to its providers (AS 1 and AS 2).  
-AS 2 will again drop the packet due to the filters, while AS 1 will accept it.  
-If the BGP decision process of AS 1 will select as best route the path from AS 5, then traffic from AS 1 to AS 5 will be sent to the attacker instead of towards the proper owner.
+In this scenario, AS 5 will announce network P, which is owned and already announced by AS 4. Due to the filter configurations described above, the Update message announced by AS 5 will be dropped by AS 2, while it will be accepted by AS 3. AS 3 will then announce that to its providers (AS 1 and AS 2). AS 2 will again drop the packet due to the filters, while AS 1 will accept it. If the BGP decision process of AS 1 will select as best route the path from AS 5, then traffic from AS 1 to AS 5 will be sent to the attacker instead of towards the proper owner.  
 
-![prefix-hijack-attacks-2](imgs/prefix-hijack-attacks-2.webp "Prefix Hijack Attacks")
+Now imagine this to include about 65,000 AS’s, each with its own filter policy, if any. The consequence is that part of the Internet will redirect its traffic towards the attacker, while the rest will redirect its traffic towards the proper origin.  
+
+The amount of AS’s redirecting their traffic towards the attacker will depend on two factors:  
+1. The quality of the filters applied by the providers.  
+2. The BGP decision process output of each AS.  
+
+**Note**  
+In this scenario it is possible to identify the attacker.  
+By checking BGP packets involving P, either from route collectors via post-mortem analysis Or from dedicated real-time BGP monitoring systems, or customer complaints, when traffic is not re-directed to the original owner.
+
+![prefix-hijack-attacks-2](imgs/prefix-hijack-attack-2.webp "Prefix Hijack Attacks")
+
+**Example 2: (Above)**  
+
+AS 5 will now announce network P1 subnet of network P, still owned by AS 4 but never advertised by AS 4. For example, consider P to be 10.0.0.0/23, then P1 could either be 10.0.0.0/24 or 10.0.1.0/24. AS 5 will announce it only to AS 3, knowing that AS 3 filters are loose. In addition, AS 5 will know that AS 2’s filters are tight and will exploit that to keep a safe route towards the destination.
+
+In this scenario, P1 will propagate the same way as P in the previous scenario. The slight difference is that now every affected AS will have two different routes for the IP space covered by P: P and P1. Let’s focus on AS 1. Even if a proper route to P is installed in AS 1’s router, only a portion of traffic of the original P will be directed to the proper owner due to the longest prefix match. Please note that since AS 5 kept one of its providers explicitly out of the hijack, AS 5 can now route traffic received from AS 1 directed to P1 to the proper owner, after analyzing and/or manipulating each packet.
 
 
 
-![prefix-hijack-attacks-3](imgs/prefix-hijack-attacks-3.webp "Prefix Hijack Attacks")
+![prefix-hijack-attacks-3](imgs/prefix-hijack-attack-3.webp "Prefix Hijack Attacks")
 
 ##### Solution
 
