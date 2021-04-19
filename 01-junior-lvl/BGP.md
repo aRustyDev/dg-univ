@@ -13,12 +13,11 @@ There are 2 flavors of BGP.
 2. **eBGP** - Used for routing across the Internet.
 
 ## Vulnerablities
-**Sources:** [1][vuln-1]  
 There are two Major types of BGP vulnerabilities
 1. [Prefix Hijack Attacks](#prefix-hijack-attacks)
 2. [Route Leaks and Fat Finger Syndrome](#route-leaks-and-fat-finger-syndrome)
 
-The risks in BGP arise from three fundamental vulnerabilities:
+The risks in BGP arise from three fundamental vulnerabilities:[<sup>1</sup>][vuln-1]
 
 1. BGP has no internal mechanism that provides strong protection of the integrity, freshness, and peer entity authenticity of the messages in peer-peer BGP communications.
 2. No mechanism has been specified within BGP to validate the authority of an AS to announce NLRI information.
