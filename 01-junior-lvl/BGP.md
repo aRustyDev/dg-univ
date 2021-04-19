@@ -4,7 +4,7 @@
 **Sources:** [1][bgp-1]  
 Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) [<sup>1</sup>][ext-1] on the Internet. BGP is classified as a path-vector routing protocol, and it makes routing decisions based on paths, network policies, or rule-sets configured by a network administrator.
 
-### How does this impact Routing?
+## How does this impact Routing?
 BGP is the protocol that helps to determine & update routes between internet gateway routers.  
 BGP is basically what determines the routes across the internet, so it heavily impacts routing.  
 
@@ -12,7 +12,7 @@ There are 2 flavors of BGP.
 1. **iBGP** - Used for routing within an autonomous system (ASN)
 2. **eBGP** - Used for routing across the Internet.
 
-### Vulnerablities
+## Vulnerablities
 **Sources:** [1][vuln-1]  
 There are two Major types of BGP vulnerabilities
 1. [Prefix Hijack Attacks](#prefix-hijack-attacks)
@@ -30,12 +30,12 @@ Part of the problem can be solved applying cryptographic authentication on each 
 
 Solutions like Resource Public Key Infrastructure (RPKI) and BGPsec path validation have been recently standardized by IETF, but they still require the collaboration of many AS’s and thus are difficult to deploy.
 
-#### Prefix Hijack Attacks
+### Prefix Hijack Attacks
 Prefix hijacks are deliberate intentional generation of bogus routing information.
 
 The attacker could announce routes to disrupt the services running on top of the IP space covered by the routes, or hijack the traffic to analyze confidential information flowing towards that service. The attacker could also simply announce routes with a crafted AS path to show fake neighboring connections in famous websites, like the BGP toolkit of Hurricane Electric. Or even worse, the attacker could hijack the traffic to manipulate the flowing packets at his/her will, or simply want to exploit unused routes to generate spam.
 
-#### Route Leaks and Fat Finger Syndrome
+### Route Leaks and Fat Finger Syndrome
 Route leaks are unintentional generation of bogus routing information caused by router misconfigurations, such as typos in the filter configuration or mis-origination of someone’s else network (fat finger). Even if unintentional, the consequences of a route leak can be the same as the prefix hijacks.
 
 [bgp-1]: https://en.wikipedia.org/wiki/Border_Gateway_Protocol
