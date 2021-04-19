@@ -1,6 +1,6 @@
 # Networking Advanced
-* BGP
-* ASNs
+* [BGP](BGP.md)
+* [ASNs](ASNs.md)
 * Subnetting - NFLB
 * Subnetting - Masks
   * Counting Method - Number Line
