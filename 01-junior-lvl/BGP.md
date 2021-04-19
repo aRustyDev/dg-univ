@@ -1,8 +1,7 @@
 ## \#\# See [Wiki](https://github.com/aRustyDev/dg-univ/wiki/bgp) for More Info \#\#
 --- 
 # BGP
-**Sources:** [1][bgp-1]  
-Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) [<sup>1</sup>][ext-1] on the Internet. BGP is classified as a path-vector routing protocol, and it makes routing decisions based on paths, network policies, or rule-sets configured by a network administrator.
+Border Gateway Protocol (BGP)[<sup>1</sup>][bgp-1] is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems (AS) [<sup>2</sup>][ext-1] on the Internet. BGP is classified as a path-vector routing protocol, and it makes routing decisions based on paths, network policies, or rule-sets configured by a network administrator.
 
 ## How does this impact Routing?
 BGP is the protocol that helps to determine & update routes between internet gateway routers.  
@@ -17,7 +16,7 @@ There are two Major types of BGP vulnerabilities
 1. [Prefix Hijack Attacks](#prefix-hijack-attacks)
 2. [Route Leaks and Fat Finger Syndrome](#route-leaks-and-fat-finger-syndrome)
 
-The risks in BGP arise from three fundamental vulnerabilities:[<sup>1</sup>][vuln-1]
+The risks in BGP arise from three fundamental vulnerabilities:[<sup>3</sup>][vuln-1]
 
 1. BGP has no internal mechanism that provides strong protection of the integrity, freshness, and peer entity authenticity of the messages in peer-peer BGP communications.
 2. No mechanism has been specified within BGP to validate the authority of an AS to announce NLRI information.
