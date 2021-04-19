@@ -31,14 +31,17 @@ Solutions like Resource Public Key Infrastructure (RPKI) and BGPsec path validat
 ### Prefix Hijack Attacks
 Prefix hijacks are deliberate intentional generation of bogus routing information.
 
-The attacker could announce routes to disrupt the services running on top of the IP space covered by the routes, or hijack the traffic to analyze confidential information flowing towards that service. The attacker could also simply announce routes with a crafted AS path to show fake neighboring connections in famous websites, like the BGP toolkit of Hurricane Electric. Or even worse, the attacker could hijack the traffic to manipulate the flowing packets at his/her will, or simply want to exploit unused routes to generate spam.
+The attacker could announce routes to disrupt the services running on top of the IP space covered by the routes, or hijack the traffic to analyze confidential information flowing towards that service. The attacker could also simply announce routes with a crafted AS path to show fake neighboring connections in famous websites, like the BGP toolkit of Hurricane Electric[<sup>4</sup>][bgp-3]. Or even worse, the attacker could hijack the traffic to manipulate the flowing packets at his/her will, or simply want to exploit unused routes to generate spam.
 
 ### Route Leaks and Fat Finger Syndrome
 Route leaks are unintentional generation of bogus routing information caused by router misconfigurations, such as typos in the filter configuration or mis-origination of someone’s else network (fat finger). Even if unintentional, the consequences of a route leak can be the same as the prefix hijacks.
 
 [bgp-1]: https://en.wikipedia.org/wiki/Border_Gateway_Protocol
 [bgp-2]: https://blog.catchpoint.com/2019/10/25/vulnerabilities-of-bgp/
+[bgp-3]: https://bgp.he.net/
 
 [vuln-1]: https://tools.ietf.org/html/rfc4272
 
 [ext-1]: ASNs.md
+
+
